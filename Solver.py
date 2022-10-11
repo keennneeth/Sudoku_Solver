@@ -28,11 +28,11 @@ def valid(puzzle, guess, row, col):
 
 
 
-    row_start = (row // 3) * 3
+    row_start = (row // 3) * 3      #getting row/col value
     col_start = (col // 3) * 3
 
-    for r in range (row_start, row_start + 3):
-        for c in range (col_start, col_start + 3):
+    for r in range (row_start, row_start + 3):      #+3 so it can iterate through each row
+        for c in range (col_start, col_start + 3):  #+3 so it can iterate through each col
             if puzzle[r][c] == guess:
                 return False
 
@@ -51,7 +51,7 @@ def solve_sudoku(puzzle):
 
         #time to start finding the number that belongs in slot
 
-    for guess in range (1, 10):         #make a guess from 1-9
+    for guess in range (0, 9):         #make a guess from 1-9
                                         #recursively call this function until it makes correct guess
         if valid(puzzle, guess, row, col):
             puzzle[row][col] = guess
